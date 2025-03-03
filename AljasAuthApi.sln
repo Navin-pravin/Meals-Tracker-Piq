@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AljasAuthApi", "AljasAuthApi.csproj", "{FDA92DE5-5AFC-6136-D117-9F5692487F59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDA92DE5-5AFC-6136-D117-9F5692487F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA92DE5-5AFC-6136-D117-9F5692487F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA92DE5-5AFC-6136-D117-9F5692487F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA92DE5-5AFC-6136-D117-9F5692487F59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A41CDD39-A41A-406F-BEF2-D08F32B2992F}
+	EndGlobalSection
+EndGlobal
