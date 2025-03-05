@@ -1,7 +1,9 @@
 using AljasAuthApi.Services;
 using AljasAuthApi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace AljasAuthApi.Controllers
@@ -70,6 +72,26 @@ namespace AljasAuthApi.Controllers
                 return NotFound(new { message = "Visitor not found" });
 
             return Ok(new { message = "Visitor deleted successfully" });
+        }
+
+        // ✅ Bulk Upload Visitors (Excel)
+        [HttpPost("bulk-upload")]
+        public async Task<IActionResult> BulkUploadVisitors(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest(new { message = "Invalid file" });
+
+            using var stream = file.OpenReadStream();
+            bool isUploaded = await _visitorService.BulkUploadVisitorsAsync(stream);
+            return isUploaded ? Ok(new { message = "Bulk upload successful" }) : StatusCode(500, new { message = "Bulk upload failed" });
+        }
+
+        // ✅ Download Sample Excel File
+        [HttpGet("download-sample")]
+        public IActionResult DownloadSampleExcel()
+        {
+            var fileBytes = _visitorService.GenerateSampleExcel();
+            return File(fileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Visitor_Sample.xlsx");
         }
     }
 }
